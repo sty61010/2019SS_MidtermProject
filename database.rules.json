@@ -1,0 +1,6 @@
+{
+  "rules": {
+    ".write": "auth!=NULL",
+    ".read": "auth!=NULL"
+  }
+}
