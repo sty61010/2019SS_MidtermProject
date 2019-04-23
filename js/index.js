@@ -53,7 +53,15 @@ function init() {
     var first_count = 0;
     // Counter for checking when to update new post
     var second_count = 0;
-
+    postsRef.on('value', function (snapshot) {
+        total_post = [];
+        document.getElementById('post_list').innerHTML = "";
+        for (var i in snapshot.val()) {
+            total_post +=
+             "<p>" +str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
+            document.getElementById('post_list').innerHTML = total_post;
+        }
+    })
     postsRef.once('value')
         .then(function (snapshot) {
             /// TODO 7: Get all history posts when the web page is loaded and add listener to update new post
@@ -65,20 +73,12 @@ function init() {
             ///
             ///         Hint: When history post count is less then new post count, update the new and refresh html
             console.log(snapshot.val());
-            for (var i in snapshot.val()) {
-                total_post += "<p>"+
-                    str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
-                document.getElementById('post_list').innerHTML = total_post;
-            }
-            postsRef.on('value', function (snapshot) {
-                total_post = [];
-                document.getElementById('post_list').innerHTML = "";
-                for (var i in snapshot.val()) {
-                    total_post +=
-                     "<p>" +str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
-                    document.getElementById('post_list').innerHTML = total_post;
-                }
-            })
+            // for (var i in snapshot.val()) {
+            //     total_post += "<p>"+
+            //         str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
+            //     document.getElementById('post_list').innerHTML = total_post;
+            // }
+
         })
         .catch(e => console.log("Post Error"));
 }
