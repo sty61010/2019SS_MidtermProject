@@ -3,11 +3,11 @@
 ///         1. New a Firebase project
 ///         2. Copy and paste firebase config below
 var config = {
-    apiKey: "AIzaSyBQ6ha1o5Qwx6keoG3LDf1-vQ8jRwY-oTM",
-    authDomain: "lab06-d3b83.firebaseapp.com",
-    databaseURL: "https://lab06-d3b83.firebaseio.com",
-    projectId: "lab06-d3b83",
-    storageBucket: "lab06-d3b83.appspot.com",
-    messagingSenderId: "715795948333"
-};
-firebase.initializeApp(config);
+    apiKey: "AIzaSyDh_gWanl3HqsNQoMRCi6NSKNv2KtJ_2W0",
+    authDomain: "midtermproject-106034061.firebaseapp.com",
+    databaseURL: "https://midtermproject-106034061.firebaseio.com",
+    projectId: "midtermproject-106034061",
+    storageBucket: "midtermproject-106034061.appspot.com",
+    messagingSenderId: "93098468444"
+  };
+  firebase.initializeApp(config);

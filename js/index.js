@@ -6,20 +6,21 @@ function init() {
         if (user) {
             user_email = user.email;
             menu.innerHTML = "<span class='dropdown-item'>" + user.email + "</span><span class='dropdown-item' id='logout-btn'>Logout</span>";
+
+            /// TODO 5: Complete logout button event
+            ///         1. Add a listener to logout button 
+            ///         2. Show alert when logout success or error (use "then & catch" syntex)
             var logout_btn = document.getElementById("logout-btn")
             logout_btn.addEventListener('click', function () {
                 firebase.auth().signOut()
                 .then(function () {
-                    // Sign-out successful.
+                    console.log("Sign Out Success");
                     window.location.href = "signin.html";
                 })
                 .catch(function () {
-                    // An error happened
+                    console.log("Sign Out Error");
                 });
             })
-            /// TODO 5: Complete logout button event
-            ///         1. Add a listener to logout button 
-            ///         2. Show alert when logout success or error (use "then & catch" syntex)
         } else {
             // It won't show any post if not login
             menu.innerHTML = "<a class='dropdown-item' href='signin.html'>Login</a>";
@@ -73,13 +74,13 @@ function init() {
                 total_post = [];
                 document.getElementById('post_list').innerHTML = "";
                 for (var i in snapshot.val()) {
-                    total_post += "<p>" +
-                        str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
+                    total_post +=
+                     "<p>" +str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
                     document.getElementById('post_list').innerHTML = total_post;
                 }
             })
         })
-        .catch(e => console.log(e.message));
+        .catch(e => console.log("Post Error"));
 }
 window.onload = function () {
     init();

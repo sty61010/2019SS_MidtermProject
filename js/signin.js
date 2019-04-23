@@ -12,11 +12,12 @@ function initApp() {
         ///         2. Back to index.html when login success
         ///         3. Show error message by "create_alert" and clean input field
         
-        firebase.auth().signInWithEmailAndPassword(txtEmail.value, txtPassword.value).then(function (result) {
+        firebase.auth().signInWithEmailAndPassword(txtEmail.value, txtPassword.value)
+        .then(function (result) {
             window.location.href = "index.html";            
-        }).catch(function (error) {
-            // Handle Errors here.
-            create_alert("error", "!!!!!!!!!!!");
+        })
+        .catch(function (error) {
+            create_alert("error", "Email and Password sign in Error");
         });
         
     });
@@ -27,20 +28,12 @@ function initApp() {
         ///         2. Back to index.html when login success
         ///         3. Show error message by "create_alert"
         var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            // ...
-        }).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredentialtype that was used.
-            var credential = error.credential;
+        firebase.auth().signInWithPopup(provider)
+        .then(function (result) {
+
+        })
+        .catch(function (error) {
+
         });
         firebase.auth().signInWithRedirect(provider);
         firebase.auth().getRedirectResult().then(function (result) {
@@ -51,14 +44,9 @@ function initApp() {
             }
             // The signed-in user info.
             var user = result.user;
-        }).catch(function (error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredentialtype that was used.
-            var credential = error.credential;
+        })
+        .catch(function (error) {
+
         });
     });
 
@@ -67,10 +55,12 @@ function initApp() {
         ///         1. Get user input email and password to signup
         ///         2. Show success message by "create_alert" and clean input field
         ///         3. Show error message by "create_alert" and clean input field
-        firebase.auth().createUserWithEmailAndPassword(txtEmail.value, txtPassword.value).catch(function (error) {
-            // Handle Errors here.
-            varerrorCode = error.code;
-            varerrorMessage = error.message;
+        firebase.auth().createUserWithEmailAndPassword(txtEmail.value, txtPassword.value)
+        .then(function (result) {
+            create_alert("success", "Email and Password Sign Up Success");
+        })
+        .catch(function (error) {
+            create_alert("error", "Email and Password Sign Up Error");
         });
         txtEmail.value = "";
         txtPassword.value = "";
