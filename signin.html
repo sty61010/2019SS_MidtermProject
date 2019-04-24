@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Signin Page</title>
+  <title>Sign In Page</title>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link href="css/signin.css" rel="stylesheet">
@@ -23,11 +23,32 @@
 </head>
 
 <body class="text-center">
+
+
+
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">GT Forum </a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div id="dynamic-menu" class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="signin.html">Login</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
   <div id="custom-alert">
   </div>
   <div class="form-signin">
     <img class="mb-4" src="img/pic2-01.png" alt="" height="108">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in/register</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Please Sign In/Register</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
@@ -37,11 +58,12 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" id="btnLogin">Sign in</button>
+    <button class="btn btn-lg btn-primary btn-block" id="btnLogin">Sign In</button>
     <button class="btn btn-lg btn-info btn-block" id="btngoogle">Sign in with Google</button>
-    <button class="btn btn-lg btn-secondary btn-block" id="btnSignUp">New account</button>
-
+    <button class="btn btn-lg btn-secondary btn-block" id="btnSignUp">Sign Up</button>
   </div>
+
+  
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-function init() {
+
     var user_email = '';
     firebase.auth().onAuthStateChanged(function (user) {
         var menu = document.getElementById('dynamic-menu');
@@ -28,11 +28,20 @@ function init() {
         }
     });
 
-    // post_btn = document.getElementById('post_btn');
+    post_btn = document.getElementById('post_btn');
     post_txt = document.getElementById('comment');
     
     var postsRef = firebase.database().ref('post_list');
-
+    post_btn.addEventListener('click', function () {
+        if (post_txt.value != "") {
+            /// TODO 6: Push the post to database's "com_list" node
+            ///         1. Get the reference of "com_list"
+            ///         2. Push user email and post data
+            ///         3. Clear text field
+            postsRef.push({email:user_email, post:post_txt.value});
+            post_txt.value = "";
+        }
+    });
     var userpage_btn=document.getElementById('userpage');
     userpage_btn.addEventListener('click', function () {
         window.location.href = "userpage.html";            

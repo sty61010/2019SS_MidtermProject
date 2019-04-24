@@ -28,7 +28,7 @@
 <body class="bg-light">
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">GT Forum </a>
+        <a class="navbar-brand" href="#">GT Forum</a>
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,8 +41,6 @@
                         <a class="dropdown-item" href="signin.html">Login</a>
                     </div>
                 </li>
-                <button class="btn btn-lg btn-secondary btn-block" id="userpage">Post on User Page</button>
-
             </ul>
         </div>
     </nav>
@@ -51,14 +49,20 @@
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
             <img class="mr-3" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-outline.svg" alt="" width="48" height="48">
             <div class="lh-100">
-                <h6 class="mb-0 text-white lh-100">Post List Page</h6>
-                <small>Pick the Topic that Interest you</small>
+                <h6 class="mb-0 text-white lh-100">Lab 06 Simple Forum</h6>
+                <small>Software Studio 2019 Spring</small>
             </div>
         </div>
         <div id="post_list">
         </div>
 
-
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <h5 class="border-bottom border-gray pb-2 mb-0">New Post</h5>
+            <textarea class="form-control" rows="5" id="comment" style="resize:none"></textarea>
+            <div class="media text-muted pt-3">
+                <button id="post_btn" type="button" class="btn btn-success">Submit</button>
+            </div>
+        </div>
     </main>
     <!-- Bootstrap core JavaScript
     ================================================== -->
