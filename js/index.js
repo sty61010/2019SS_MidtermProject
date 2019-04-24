@@ -53,7 +53,20 @@ function init() {
             document.getElementById('post_list').innerHTML = total_post;
         }
     })
+    // postsRef.once('value')
+    //     .then(function (snapshot) {
+    //         /// TODO 7: Get all history posts when the web page is loaded and add listener to update new post
+    //         ///         1. Get all history post and push to a list (str_before_username + email + </strong> + data + str_after_content)
+    //         ///         2. Join all post in list to html in once
+    //         ///         4. Add listener for update the new post
+    //         ///         5. Push new post's html to a list
+    //         ///         6. Re-join all post in list to html when update
+    //         ///
+    //         ///         Hint: When history post count is less then new post count, update the new and refresh html
+    //         console.log(snapshot.val());
 
+    //     })
+    //     .catch(e => console.log("Post Error"));
 }
 window.onload = function () {
     init();
