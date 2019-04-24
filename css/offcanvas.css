@@ -1,6 +1,6 @@
 html,
 body {
-  overflow-x: hidden; /* Prevent scroll on narrow devices */
+  overflow-x: hidden; 
 }
 
 body {
@@ -10,13 +10,13 @@ body {
 @media (max-width: 767.98px) {
   .offcanvas-collapse {
     position: fixed;
-    top: 56px; /* Height of navbar */
+    top: 56px;
     bottom: 0;
     width: 100%;
     padding-right: 1rem;
     padding-left: 1rem;
     overflow-y: auto;
-    background-color: var(--gray-dark);
+    background-color: bla;
     transition: -webkit-transform .3s ease-in-out;
     transition: transform .3s ease-in-out;
     transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
@@ -25,7 +25,7 @@ body {
   }
   .offcanvas-collapse.open {
     -webkit-transform: translateX(-1rem);
-    transform: translateX(-1rem); /* Account for horizontal padding on navbar */
+    transform: translateX(-1rem); 
   }
 }
 
@@ -67,7 +67,7 @@ body {
   color: var(--gray-dark);
 }
 
-.text-white-50 { color: rgba(255, 255, 255, .5); }
+.text-white-50 { color: rgb(255, 255, 255); }
 
 .bg-purple { background-color: var(--purple); }
 

@@ -5,11 +5,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Midterm Project 106034061</title>
+    <title>Post Page</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -22,13 +18,13 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
     <script src="js/config.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/postpage.js"></script>
 </head>
 
 <body class="bg-light">
 
     <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">GT Forum</a>
+        <a class="navbar-brand" href="index.html">GT Forum</a>
         <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,17 +43,18 @@
 
     <main role="main" class="container">
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-            <img class="mr-3" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-outline.svg" alt="" width="48" height="48">
+
             <div class="lh-100">
-                <h6 class="mb-0 text-white lh-100">Lab 06 Simple Forum</h6>
-                <small>Software Studio 2019 Spring</small>
+                <p class="mb-0 text-white lh-100"><strong>Post Page</strong></p>
+                <h6 >Topic</h6>
+
             </div>
         </div>
         <div id="post_list">
         </div>
 
         <div class="my-3 p-3 bg-white rounded box-shadow">
-            <h5 class="border-bottom border-gray pb-2 mb-0">New Post</h5>
+            <h5 class="border-bottom border-gray pb-2 mb-0">Leave Your Comments Here</h5>
             <textarea class="form-control" rows="5" id="comment" style="resize:none"></textarea>
             <div class="media text-muted pt-3">
                 <button id="post_btn" type="button" class="btn btn-success">Submit</button>

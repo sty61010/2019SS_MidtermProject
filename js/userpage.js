@@ -29,7 +29,7 @@ function init() {
     });
 
     post_btn = document.getElementById('post_btn');
-    post_txt = document.getElementById('comment');
+    post_txt = document.getElementById('post');
     
     var postsRef = firebase.database().ref('post_list');
     post_btn.addEventListener('click', function () {
@@ -46,7 +46,7 @@ function init() {
 
 
     // The html code for post
-    var str_before_username = "<div class='my-3 p-3 bg-white rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent updates</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";
+    var str_before_username = "<div class='my-3 p-3 bg-white rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent Topics</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";
     var str_after_content = "</p></div></div>\n";
 
     // List for store posts html
