@@ -26,11 +26,17 @@ function init() {
 
     post_btn = document.getElementById('post_btn');
     post_txt = document.getElementById('post');
-    
+
+
+
+
     var postsRef = firebase.database().ref('post_list1');
     post_btn.addEventListener('click', function () {
         if (post_txt.value != "") {
-            postsRef.push({email:user_email, post:post_txt.value});
+            postsRef.push({
+                email:user_email, 
+                post:post_txt.value
+            });
             post_txt.value = "";
             window.location.href = "postlistpage1.html";            
         }

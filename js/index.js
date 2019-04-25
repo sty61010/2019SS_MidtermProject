@@ -20,7 +20,7 @@ function init() {
         } else {
 
             menu.innerHTML = "<a class='dropdown-item' href='signin.html'>Login</a>";
-            document.getElementById('post_list').innerHTML = "";
+            // document.getElementById('post_list').innerHTML = "";
         }
     });
     var postlistpage1=document.getElementById("postlistpage1");

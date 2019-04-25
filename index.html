@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
-
 </html>
-
 <head>
     <meta charset="utf-8">
     <title>Midterm Project 106034061</title>
@@ -18,18 +16,54 @@
             color: aliceblue;
         }
         .jumbotron {
-            
             background-image: url("star_night.jpg");
             background-size: cover;
             background-position: center;
-            height: 300px;
+            height: 500px;
             color: white;
             text-align: center;
         }
         .container{background-color:darkblue;}
         .navbar-brand{color: aliceblue;}
         .nav navbar-nav{color: aliceblue;}
+        ul li a {
+            color: #666;
+            transition: .5s;
+        }
+        ul li a:before {
+            background: #d35400;
+            transition: .5s;
+            transform: scale(.9);
+            z-index: -1;
+        }
+        ul li a:hover:before {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px #d35400;
+            filter: blur(3px);
+        }
+        ul li a:hover {
+            color: #ffa502;
+            box-shadow: 0 0 15px #d35400;
+            text-shadow: 0 0 15px #d35400;
+        }
 
+        #night-view {
+            text-align: center;
+            background-position: center;
+            width: 200px;
+            height: 200px;
+            background: url(http://cdn.petapixel.com/assets/uploads/2012/12/europe.jpg);
+            border-radius: 100%;
+            background-size: 400px;
+            box-shadow: inset 16px 0 40px 6px rgb(0, 0, 0), inset -3px 0 6px 2px rgba(255, 255, 255, 0.2);
+            transition: all 3s ease-in-out;
+            animation: rotate 5s infinite forwards linear; 
+        }
+        @keyframes rotate {
+            from{background-position-x:0px;}
+            to{background-position-x:400px;}
+        }
+        
       </style>
     <!-- script -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
@@ -43,8 +77,10 @@
 <body >
 
 <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
-    <a class="navbar-brand" href="index.html">GT Forum </a>
     <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="navbar-brand" href="index.html">GT Forum </a>
+        </li>
         <li class="nav-item active">
             <a class="nav-link" href="userpage1.html" id="userpage" >Post</a>
         </li>
@@ -63,15 +99,15 @@
     </ul>
 </nav>
 
+
 <div class="jumbotron">
         <h1>
             <a href="index.html" data-toggle="collapse" class="text-white"><strong>George Tsenge's Forum</strong></a>
-            <div id="demo" class="collapse">Try to learn more about me......</div>
         </h1>
         <a class="btn btn-primary btn-lg" href="https://www.facebook.com/" role="button">Post</a>
         <a class="btn btn-warning btn-lg" href="https://www.facebook.com/" role="button">Profile</a>
         <a class="btn btn-success btn-lg" href="https://www.facebook.com/" role="button">Chat</a>
-        <!-- <img src="welcome.png" class="img-thumbnail" alt="What are you looking for?"> -->
+        <div id="night-view" ></div>
 
 </div>
 
