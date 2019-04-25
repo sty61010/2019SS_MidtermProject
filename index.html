@@ -12,7 +12,26 @@
 
     <!-- Custom styles for this template -->
     <link href="css/offcanvas.css" rel="stylesheet">
+    <style type="text/css">
+        body{
+            background-color: black;
+            color: aliceblue;
+        }
+        .jumbotron {
+            
+            background-image: url("star_night.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            color: white;
+            text-align: center;
+        }
+        .container{background-color:darkblue;}
+        .navbar-brand{color: aliceblue;}
+        .nav navbar-nav{color: aliceblue;}
 
+      </style>
+    <!-- script -->
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
@@ -23,11 +42,11 @@
 
 <body >
 
-<nav class="navbar navbar-expand-md fixed-top bg-primary navbar-dark">
+<nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
     <a class="navbar-brand" href="index.html">GT Forum </a>
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link" href="userpage.html" id="userpage" >Post</a>
+            <a class="nav-link" href="userpage1.html" id="userpage" >Post</a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="#">Profile</a>
@@ -43,29 +62,44 @@
         </li>
     </ul>
 </nav>
-    <!-- <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">GT Forum </a>
 
-        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-            
-            <ul class="navbar-nav mr-auto">
+<div class="jumbotron">
+        <h1>
+            <a href="index.html" data-toggle="collapse" class="text-white"><strong>George Tsenge's Forum</strong></a>
+            <div id="demo" class="collapse">Try to learn more about me......</div>
+        </h1>
+        <a class="btn btn-primary btn-lg" href="https://www.facebook.com/" role="button">Post</a>
+        <a class="btn btn-warning btn-lg" href="https://www.facebook.com/" role="button">Profile</a>
+        <a class="btn btn-success btn-lg" href="https://www.facebook.com/" role="button">Chat</a>
+        <!-- <img src="welcome.png" class="img-thumbnail" alt="What are you looking for?"> -->
 
-                <button class="btn btn-lg btn-primary" id="userpage">Post</button>
-                <button class="btn btn-lg btn-primary " id="prfilepage">Profile</button>
-                <button class="btn btn-lg btn-primary " id="chatpage">Chat</button>
-                <li class="dropdown">
-                        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-                        <div id="dynamic-menu" class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="signin.html">Login</a>
-                        </div>
-                </li>
-            </ul>
-        </div>
-    </nav> -->
+</div>
 
-    <main role="main" class="container">
+<div class="container">
+    <h2><strong>Topics</strong></h2>   
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <td class="bg-primary text-white">Techology and Information</td>
+                <td class=" text-white" id="postlistpage1"><a class="btn btn-danger" href="postlistpage1.html" role="button">Go Check</a></td>
+            </tr>
+            <tr>
+                <td class="bg-success text-white">Gossip</td>
+                <td class=" text-white" id="postlistpage2"><a class="btn btn-danger" href="postlistpage2.html" role="button">Go Check</a></td>
+            </tr>
+            <tr>
+                <td class="bg-info text-white">Entertainment</td>
+                <td class="text-white" id="postlistpage3"><a class="btn btn-danger" href="postlistpage1.html" role="button">Go Check</a></td>
+            </tr>
+            <tr>
+                <td class="bg-warning text-white">Movie and Youtube</td>
+                <td class="text-white" id="postlistpage4"><a class="btn btn-danger" href="postlistpage1.html" role="button">Go Check</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <!-- <main role="main" class="container">
         <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-
             <div class="lh-100">
                 <p class="mb-0 text-white lh-100"><strong>Post List Page</strong></p>
                 <small>Pick the Topic that Interest you</small>
@@ -73,9 +107,7 @@
         </div>
         <div id="post_list">
         </div>
-
-
-    </main>
+    </main> -->
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

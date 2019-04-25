@@ -26,7 +26,7 @@ function init() {
 
 
     
-    var postsRef = firebase.database().ref('post_list');
+    var postsRef = firebase.database().ref('post_list1');
     // The html code for post
     var str_before_username =
      "<div class='my-3 p-3 bg-white rounded box-shadow'><h5 class='border-bottom border-gray pb-2 '>Recently Topic</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";
@@ -47,7 +47,7 @@ function init() {
              "</p>"+
              "</div>"+
              "<h5 class='border-bottom border-gray pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
-
+            "<a class='btn btn-danger' href='postpage.html' role='button'>Go Check</a>"+
              "</div>\n </p > ";
             document.getElementById('post_list').innerHTML = total_post;
         }
