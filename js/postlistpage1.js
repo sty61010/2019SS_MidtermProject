@@ -23,18 +23,15 @@ function init() {
             document.getElementById('post_list').innerHTML = "";
         }
     });
-
-
-    
     var postsRef = firebase.database().ref('post_list1');
-    // The html code for post
 
-    // List for store posts html
     var total_post = [];
     postsRef.on('value', function (snapshot) {
         total_post = [];
+        var index=0;
         document.getElementById('post_list').innerHTML = "";
         for (var i in snapshot.val()) {
+            index++;
             total_post +=
              "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
              "<div class='my-2 border-bottom border-dark'><strong>PostID:</strong>"+i+"</div>"+
@@ -43,13 +40,30 @@ function init() {
              "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
              "</div>"+
              "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
-            "<a class='btn btn-danger' href='postpage.html' role='button'>Go Check</a>"+
+            "<a class='btn btn-danger' "+
+            // "href='postpage.html'"+
+            " role='button' >Go Check</a>"+
              "</div>\n </p > ";
-            document.getElementById('post_list').innerHTML = total_post;
         }
+        document.getElementById('post_list').innerHTML = total_post;
+
     })
 
+
 }
+var idRef=firebase.database().ref('ID');
+
+function getID(ID){
+    // var newPostKey = idRef.child().push().key;
+    // var postData = {
+    //     value:ID
+    // };
+    console.log(ID);
+    // var updates = {};
+    // updates[newPostKey] = postData;
+    // postsRef.update(updates);
+
+};
 window.onload = function () {
     init();
 };

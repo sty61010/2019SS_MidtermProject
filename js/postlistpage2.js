@@ -50,8 +50,9 @@ function init() {
              "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
              "<a class='btn btn-danger' href='postpage.html' role='button'>Go Check</a>"+
              "</div>\n </p > ";
-            document.getElementById('post_list').innerHTML = total_post;
         }
+        document.getElementById('post_list').innerHTML = total_post;
+
     })
 
 }

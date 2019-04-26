@@ -30,10 +30,16 @@ function init() {
     var postsRef = firebase.database().ref('post_list2');
     post_btn.addEventListener('click', function () {
         if (post_txt.value != "") {
-            postsRef.push({
-                email:user_email, 
+            var newPostKey = firebase.database().ref().child('post_list2').push().key;
+            var postData = {
+                id:newPostKey,
+                email:user_email,
                 post:post_txt.value
-            });
+            };
+            var updates = {};
+            updates[newPostKey] = postData;
+            postsRef.update(updates);
+
             post_txt.value = "";
             window.location.href = "postlistpage2.html";            
         }
