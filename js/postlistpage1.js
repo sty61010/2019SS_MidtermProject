@@ -42,7 +42,7 @@ function init() {
              "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
             "<a class='btn btn-danger' "+
             // "href='postpage.html'"+
-            " role='button' >Go Check</a>"+
+            " role='button' onclick='getID("+index+")')>Go Check</a>"+
              "</div>\n </p > ";
         }
         document.getElementById('post_list').innerHTML = total_post;
@@ -54,14 +54,8 @@ function init() {
 var idRef=firebase.database().ref('ID');
 
 function getID(ID){
-    // var newPostKey = idRef.child().push().key;
-    // var postData = {
-    //     value:ID
-    // };
     console.log(ID);
-    // var updates = {};
-    // updates[newPostKey] = postData;
-    // postsRef.update(updates);
+   
 
 };
 window.onload = function () {
