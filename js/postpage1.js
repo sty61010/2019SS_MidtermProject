@@ -62,7 +62,7 @@ function init() {
     })
 
 
-    var comRef=firebase.database().ref('com_list'+id);
+    var comRef=firebase.database().ref('com_list1'+id);
     post_btn.addEventListener('click', function () {
         if (post_txt.value != "") {
             var newPostKey = firebase.database().ref().child('com_list'+id).push().key;

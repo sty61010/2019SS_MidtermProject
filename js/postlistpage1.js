@@ -46,17 +46,15 @@ function init() {
              "</div>\n </p > ";
         }
         document.getElementById('post_list').innerHTML = total_post;
-
     })
 
 
 }
-var idRef=firebase.database().ref('ID');
+
 
 function getID(ID){
     console.log(ID);
-   
-
+    window.location.href="postpage1.html?"+ID;
 };
 window.onload = function () {
     init();

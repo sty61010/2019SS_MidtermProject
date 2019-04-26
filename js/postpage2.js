@@ -36,7 +36,7 @@ function init() {
     console.log(id);
 
     // var postsRef = firebase.database().ref('post_list1/'+id+'/comment_list');
-    var postsRef = firebase.database().ref('post_list1');
+    var postsRef = firebase.database().ref('post_list2');
     var total_post = [];
     postsRef.once('value', function (snapshot) {
         total_post = [];
@@ -62,7 +62,7 @@ function init() {
     })
 
 
-    var comRef=firebase.database().ref('com_list'+id);
+    var comRef=firebase.database().ref('com_list2'+id);
     post_btn.addEventListener('click', function () {
         if (post_txt.value != "") {
             var newPostKey = firebase.database().ref().child('com_list'+id).push().key;
