@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html >
+<head>
+  
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AS_01_WebCanvas_106034061</title>
+
+  <!--  Styles  -->
+  <link rel="stylesheet" href="css/canvas.css">
+  <link rel="stylesheet"A href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="css/offcanvas.css" rel="stylesheet">
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-database.js"></script>
+  <script src="js/config.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="navbar-brand" href="index.html">GT Forum </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="userpage1.html" id="userpage" >Post</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Chat</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="canvas.html">Canvas</a>
+            </li>
+            <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div id="dynamic-menu" class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="signin.html">Login</a>
+                    </div>
+            </li>
+        </ul>
+    </nav>
+
+  <canvas id="canvas"  height="450"></canvas>
+  <h1 id="head">George's Web Canvas</h1>
+
+  <button class="bg-second" id="clear" style="white" >Clear</button>
+  <button class="bg-second" id="eraser" style="white" >Eraser</button>
+  <button class="bg-second" id="pen" style="white" >Pen</button>
+  <button class="bg-second" id="text" style="white" >Text</button>
+  <button class="bg-second" id="triangle" style="white" >Triangle</button>
+  <button class="bg-second" id="rectangle" style="white" >Rectangle</button>
+  <button class="bg-second" id="circle" style="white" >Circle</button>
+  <input type="file" id="upload" >
+  <br>
+  <input type="text" id="text_input" value="<<Image Source>>">
+  <input type="range" id="size" min="10" max="100" value="20">
+  <span id="value">20</span>  
+  <select id="font">
+    <option value="Georgia">Georgia</option>
+    <option value="Arial">Arial</option>
+    <option value="Times New Roman">Times New Roman</option>
+  </select>
+  <table style="width:100%; table-layout:fixed ;" border="0" cellpadding="0">
+    <tr>
+      <th class="bg-primary">Alter</th>
+      <th class="bg-info">Brush</th> 
+      <th class="bg-warning">Style</th>
+      <th class="bg-danger">BackGround Color</th>
+      <th class="bg-success">Brush Color</th>
+    </tr>    
+    <tr>
+      <th><button class="table-primary" id="save_by_web">Save by Web</button></th>
+      <th><button class="table-info" id="brush_very_thin">Very Thin</button></th>
+      <th><button class="table-warning" id="style_1">Pink Bubble</button></th>
+      <th><button class="table-danger" id="bg_black">black</button></th>
+      <th><button class="brushcolor" id="black">black</button></th>
+    </tr>
+    <tr>
+      <th><button class="table-primary"><a id="save_by_dl" href="#" download="Canvas.jpg" >Save by Download</a></button></th>
+      <th><button class="table-info" id="brush_thin">Thin</button></th>
+      <th><button class="table-warning" id="style_2">Blood and Dark</button></th>
+      <th><button class="table-danger" id="bg_purple">purple</button></th>
+      <th><button class="brushcolor" id="purple">purple</button></th>
+    </tr>
+    <tr>
+      <th><button class="table-primary" id="undo">Undo</button></th>
+      <th><button class="table-info" id="brush_mid">middle</button></th>
+      <th><button class="table-warning" id="style_3">Frozen</button></th>
+      <th><button class="table-danger" id="bg_green">green</button></th>
+      <th><button class="brushcolor" id="green">green</button></th>
+    </tr>
+    <tr>
+      <th><button class="table-primary" id="redo">Redo</button></th>
+      <th><button class="table-info" id="brush_thick">Thick</button></th>
+      <th><button class="table-warning" id="style_4">Forest</button></th>
+      <th><button class="table-danger" id="bg_yellow">yellow</button></th>
+      <th><button class="brushcolor" id="yellow">yellow</button></th>
+    </tr>    
+    <tr>
+      <th><button class="table-primary" id="image">Image</button></th>
+      <th><button class="table-info" id="brush_very_thick">Very Thick</button></th>
+      <th><button class="table-warning" id="style_5">Xcode</button></th>
+      <th><button class="table-danger" id="bg_red">red</button></th>
+      <th><button class="brushcolor" id="red">red</button></th>
+    </tr>
+  </table>
+
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/offcanvas.js"></script>
+
+
+
+
+</html>

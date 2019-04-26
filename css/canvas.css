@@ -1,0 +1,59 @@
+
+body {
+  margin:10px;
+  background-color:#3366ff;
+  height: 100%;
+  width: 100%;
+/*   overflow: hidden; */
+  font-family: 'Archivo Narrow', sans-serif;
+}
+h1{
+  color: #000000;
+  background-color: #00ff00;
+  font-family: 'Georgia';
+}
+select {
+  background-color: #000000;
+  color: white;
+  font-family: 'Georgia';
+}
+input[type=file] {
+  background-color: #000000;
+  color: white;
+  font-family: 'Georgia';
+}
+input[type=file]:focus {
+  background-color:  #66ff33;
+  border: 3px solid #555;
+  font-family: 'Georgia';
+}
+input[type=text] {
+  background-color: #000000;
+  color: white;
+  font-family: 'Georgia';
+}
+input[type=text]:focus {
+  background-color:#66ff33;
+  border: 3px solid #555;
+  font-family: 'Georgia';
+}
+canvas{
+  color: #4d4dff;
+  cursor: progress;
+}
+table{
+  border: 1px black;
+  border-collapse: collapse;
+  color:white;
+  border-radius: 25px;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+button {
+  background-color: #000000;
+  color: white;
+  font-family: 'Georgia';
+}
+button:hover {
+  background-color: #ccff66;
+  color: white;
+}
