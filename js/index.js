@@ -17,9 +17,8 @@ function init() {
                 });
             })
         } else {
-
             menu.innerHTML = "<a class='dropdown-item' href='signin.html'>Login</a>";
-            // document.getElementById('post_list').innerHTML = "";
+            document.getElementById('post_list').innerHTML = "";
         }
     });
     var postlistpage1=document.getElementById("postlistpage1");
@@ -30,29 +29,69 @@ function init() {
     postlistpage2.addEventListener('click', function () {
         window.location.href = "postlistpage2.html";            
     });
-    // post_btn = document.getElementById('post_btn');
-    // post_txt = document.getElementById('comment');
-    
-    // var postsRef = firebase.database().ref('post_list');
-    // var userpage_btn=document.getElementById('userpage');
-    // userpage_btn.addEventListener('click', function () {
-    //     window.location.href = "userpage.html";            
-    // });
-    // var str_before_username = "<div class='my-3 p-3 bg-white rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent updates</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";
-    // var str_after_content = "</p></div></div>\n";
+
+    post_txt = document.getElementById('comment');
+    post_btn = document.getElementById('post_btn');
+    var postsRef = firebase.database().ref('post_list0');
+    post_btn.addEventListener('click', function () {
+        if (post_txt.value != "") {
+            var newPostKey = firebase.database().ref().child('post_list0').push().key;
+            var postData = {
+                id:newPostKey,
+                email:user_email,
+                post:post_txt.value
+            };
+            var updates = {};
+            updates[newPostKey] = postData;
+            postsRef.update(updates);
+            post_txt.value = "";       
+        }
+    });
+    var str_before_username = "<div class='my-3 p-3 bg-dark rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent comments</h6><div class='media text-muted pt-3'><img src='logo.png' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small text-white border-bottom border-gray'><strong class='d-block text-white'>";
+    var str_after_content = "</p></div></div>\n";
 
 
-    // var total_post = [];
-    // postsRef.on('value', function (snapshot) {
-    //     total_post = [];
-    //     document.getElementById('post_list').innerHTML = "";
-    //     for (var i in snapshot.val()) {
-    //         total_post +=
-    //          "<p>" +str_before_username + snapshot.val()[i].email + "</strong>" + snapshot.val()[i].post + str_after_content + "</p > ";
-    //         document.getElementById('post_list').innerHTML = total_post;
-    //     }
-    // })
+    var total_post = [];
+    postsRef.on('value', function (snapshot) {
+        total_post = [];
+        document.getElementById('post_list').innerHTML = "";
+        for (var i in snapshot.val()) {
+            total_post +=
+             "<p>" +
+            str_before_username + 
+            snapshot.val()[i].email +
+            "</strong>" + snapshot.val()[i].post + 
+            str_after_content +
+            "</p > ";
+            document.getElementById('post_list').innerHTML = total_post;
+        }
+    })
 }
+// Notification
+var notifyConfig = {
+        body: "\\ ^o^ /",
+        icon: "https://cythilya.github.io/public/favicon.ico"
+    }
+  
+function createNotify() {
+    if (!("Notification" in window)) { // 檢查瀏覽器是否支援通知
+        console.log("This browser does not support notification");
+    } else if (Notification.permission === "granted") { // 使用者已同意通知
+        var notification = new Notification(
+            "Here is a Notification.", notifyConfig
+        );
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission(function(permission) {
+            if (permission === "granted") {
+                var notification = new Notification("Here is a Notification.", notifyConfig);
+            }
+        });
+    }
+}
+// Notification
+window.onload = function () {
+    init();
+};
 // function Notification(){
 //     if (!('Notification' in window)){
 //         console.log('This browser does not support notification');
@@ -83,27 +122,3 @@ function init() {
 //     }
 
 // }
-var notifyConfig = {
-    body: "\\ ^o^ /",
-    icon: "https://cythilya.github.io/public/favicon.ico"
-    }
-  
-function createNotify() {
-    if (!("Notification" in window)) { // 檢查瀏覽器是否支援通知
-        console.log("This browser does not support notification");
-    } else if (Notification.permission === "granted") { // 使用者已同意通知
-        var notification = new Notification(
-            "Thanks for granting this permission.", notifyConfig
-        );
-    } else if (Notification.permission !== "denied") {
-        Notification.requestPermission(function(permission) {
-            if (permission === "granted") {
-                var notification = new Notification("Hi there!", notifyConfig);
-            }
-        });
-    }
-}
-  
-window.onload = function () {
-    init();
-};

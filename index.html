@@ -110,9 +110,12 @@
         <h1>
             <a href="index.html" data-toggle="collapse" class="text-white"><strong>George Tsenge's Forum</strong></a>
         </h1>
-        <a class="btn btn-primary btn-lg" href="https://www.facebook.com/" role="button">Post</a>
+        <a class="btn btn-danger btn-lg" href="canvas.html" role="button">Canvas</a>
+        <a class="btn btn-primary btn-lg" href="userpage1.html" role="button">Post</a>
         <a class="btn btn-warning btn-lg" href="https://www.facebook.com/" role="button">Profile</a>
         <a class="btn btn-success btn-lg" href="https://www.facebook.com/" role="button">Chat</a>
+        <a class="btn btn-info btn-lg" href="#" role="button"onclick="createNotify()" >Notify</a>
+
         <div id="night-view" ></div>
 
 </div>
@@ -140,16 +143,22 @@
         </tbody>
     </table>
 </div>
-    <!-- <main role="main" class="container">
-        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-            <div class="lh-100">
-                <p class="mb-0 text-white lh-100"><strong>Post List Page</strong></p>
-                <small>Pick the Topic that Interest you</small>
+    <main role="main" class="container">
+        <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-dark rounded box-shadow">
+            <div >
+                <h5 class="mb-0 text-white"><strong>Public comments</strong></h5>
+                <small>Just leave Whatever you want.</small>
             </div>
         </div>
         <div id="post_list">
         </div>
-    </main> -->
+        <div class="my-3 p-3 bg-dark rounded box-shadow">
+            <textarea class="form-control" rows="3" id="comment" style="resize:none"></textarea>
+            <div class="media text-muted pt-3">
+                <button id="post_btn" type="button" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </main>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
