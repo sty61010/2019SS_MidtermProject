@@ -46,7 +46,6 @@ function initApp() {
     });
 }
 
-// Custom alert
 function create_alert(type, message) {
     var alertarea = document.getElementById('custom-alert');
     if (type == "success") {

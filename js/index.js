@@ -86,9 +86,9 @@ function init() {
 var notifyConfig = {
     body: "\\ ^o^ /",
     icon: "https://cythilya.github.io/public/favicon.ico"
-  }
+    }
   
-  function createNotify() {
+function createNotify() {
     if (!("Notification" in window)) { // 檢查瀏覽器是否支援通知
         console.log("This browser does not support notification");
     } else if (Notification.permission === "granted") { // 使用者已同意通知
@@ -97,12 +97,12 @@ var notifyConfig = {
         );
     } else if (Notification.permission !== "denied") {
         Notification.requestPermission(function(permission) {
-        if (permission === "granted") {
-            var notification = new Notification("Hi there!", notifyConfig);
-        }
-    });
+            if (permission === "granted") {
+                var notification = new Notification("Hi there!", notifyConfig);
+            }
+        });
     }
-  }
+}
   
 window.onload = function () {
     init();
