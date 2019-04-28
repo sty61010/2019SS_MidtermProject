@@ -8,6 +8,7 @@ function initApp() {
     btnLogin.addEventListener('click', function () {
         firebase.auth().signInWithEmailAndPassword(txtEmail.value, txtPassword.value)
         .then(function (result) {
+            create_alert("success", "Email and Password sign in Success");
             window.location.href = "index.html";            
         })
         .catch(function (error) {
@@ -19,14 +20,17 @@ function initApp() {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider)
         .then(function (result) {
+            create_alert("success", "Google sign in Success");
+            window.location.href="index.html";
         })
         .catch(function (error) {
+            create_alert("error", "Google sign in Error");
         });
-        firebase.auth().signInWithRedirect(provider);
-        firebase.auth().getRedirectResult().then(function (result) {
-        })
-        .catch(function (error) {
-        });
+        // firebase.auth().signInWithRedirect(provider);
+        // firebase.auth().getRedirectResult().then(function (result) {
+        // })
+        // .catch(function (error) {
+        // });
     });
 
     btnSignUp.addEventListener('click', function () {        

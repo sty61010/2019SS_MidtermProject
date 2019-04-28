@@ -2,7 +2,6 @@ function init() {
     var user_email = '';
     firebase.auth().onAuthStateChanged(function (user) {
         var menu = document.getElementById('dynamic-menu');
-
         if (user) {
             user_email = user.email;
             menu.innerHTML = "<span class='dropdown-item'>" + user.email + "</span><span class='dropdown-item' id='logout-btn'>Logout</span>";
@@ -35,17 +34,14 @@ function init() {
     // post_txt = document.getElementById('comment');
     
     // var postsRef = firebase.database().ref('post_list');
-
     // var userpage_btn=document.getElementById('userpage');
     // userpage_btn.addEventListener('click', function () {
     //     window.location.href = "userpage.html";            
     // });
-
-    // // The html code for post
     // var str_before_username = "<div class='my-3 p-3 bg-white rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent updates</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";
     // var str_after_content = "</p></div></div>\n";
 
-    // // List for store posts html
+
     // var total_post = [];
     // postsRef.on('value', function (snapshot) {
     //     total_post = [];
@@ -56,8 +52,58 @@ function init() {
     //         document.getElementById('post_list').innerHTML = total_post;
     //     }
     // })
-
 }
+// function Notification(){
+//     if (!('Notification' in window)){
+//         console.log('This browser does not support notification');
+//     }
+//     if (Notification.permission === 'default' || Notification.permission === 'undefined') {
+//         Notification.requestPermission(function (permission) {
+//           // permission 可為「granted」（同意）、「denied」（拒絕）和「default」（未授權）
+//           // 在這裡可針對使用者的授權做處理
+//         });
+//       }
+//     var notifyConfig = {
+//         body: 'notification', // 設定內容
+//         icon: 'notification.png' // 設定 icon
+//       };
+      
+//     if (Notification.permission === 'default' || Notification.permission === 'undefined') {
+//         Notification.requestPermission(function (permission) {
+//             if (permission === 'granted') { // 使用者同意授權
+//                 var notification = new Notification('Hi there!', notifyConfig); // 建立通知
+
+                  
+//                 notify.onclick = function(e) { // 綁定點擊事件
+//                     e.preventDefault(); // prevent the browser from focusing the Notification's tab
+//                     console.log("Here is Notification!")
+//                 }
+//             }
+//         });
+//     }
+
+// }
+var notifyConfig = {
+    body: "\\ ^o^ /",
+    icon: "https://cythilya.github.io/public/favicon.ico"
+  }
+  
+  function createNotify() {
+    if (!("Notification" in window)) { // 檢查瀏覽器是否支援通知
+        console.log("This browser does not support notification");
+    } else if (Notification.permission === "granted") { // 使用者已同意通知
+        var notification = new Notification(
+            "Thanks for granting this permission.", notifyConfig
+        );
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission(function(permission) {
+        if (permission === "granted") {
+            var notification = new Notification("Hi there!", notifyConfig);
+        }
+    });
+    }
+  }
+  
 window.onload = function () {
     init();
 };
