@@ -1,0 +1,22 @@
+
+body{
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:#111;	
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+canvas{
+	flex-shrink: 0;
+	background-color:#000;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}

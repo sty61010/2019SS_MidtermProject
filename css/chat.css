@@ -1,0 +1,380 @@
+/* Global */
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+}
+h3 {
+  font-size: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #424547;
+}
+p {font-size: 16px;}
+input {font-size: 24px;}
+input[type=text] {
+  color: white;
+  border: 1px solid #c2c2c2;
+  background-color: darkblue;
+}
+em {
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+}
+#messagesDiv {
+  background-color: black;
+  overflow: auto;
+  height: 500px;
+  width: 100%;
+  padding: 10px;
+  border: 8px solid darkblue;
+  margin-bottom: 5px;
+  text-align: left;
+  color:white;
+}
+#nameInput {width: 26%;}
+#messageInput {width: 68%;}
+
+
+.box{
+  padding:16px ;
+  margin-bottom:16px;
+  
+}
+
+.tophead{
+   font-family: 'Oswald', sans-serif;
+  /* background-color:#112B3D;*/
+   font-size:2em;
+   border-bottom: 1px solid #112B3D;
+     padding:16px 24px;
+}
+
+.head{
+   font-family: 'Oswald', sans-serif;
+  /* background-color:#112B3D;*/
+   font-size:2em;
+    border-bottom: 1px solid #112B3D;
+}
+
+/* .info */
+  /* background: */
+  max-width:520px;
+/* border: 1px solid #112B3D;*/
+  padding-top:0px;
+  margin:0px 30px;
+  margin-left:600px;
+   
+}
+
+.darkerblue{color:#112B3D;}
+
+.infobox{border-bottom: 1px solid #112B3D; margin-bottom:16px;
+position:relative;
+}
+.dnone{
+  display:none;
+}
+
+
+
+#solar{
+  position:absolute;
+  float:left;
+  background:;
+  width:720px;
+  height:720px;
+  overflow:hidden;
+  left:-70px;
+  top:-16px;
+  
+      -webkit-transform: scale(0.7);
+       -moz-transform: scale(0.7);
+        -ms-transform:scale(0.7);
+         -o-transform: scale(0.7);
+            transform: scale(0.7);
+  
+
+
+}
+@-webkit-keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(-360deg);
+       -moz-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+         -o-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+@keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(-360deg);
+       -moz-transform: rotate(-360deg);
+        -ms-transform: rotate(-360deg);
+         -o-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
+}
+
+
+.sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 60px;
+    width: 60px;
+    margin-top: -30px; 
+    margin-left: -30px;
+    border-radius: 50%;
+    background:#F7F788;
+    box-shadow:inset 0 0 6px red, 0 0 36px red;
+    transition:1s;
+}
+.sun:hover{
+  box-shadow:inset 0 0 6px white, 0 0 36px red;
+  transition:0;  
+}
+
+.planet{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-radius: 50%;  
+}
+
+.planetOrbit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid #112B3D;
+    border-color:#112B3D;
+    border-radius: 50%;
+    transition:1s;
+  }
+.planetOrbit:hover{
+box-shadow:inset 0 0 1px white;  
+
+transition:0;  
+
+}
+
+.planetOrbit:hover .planet{
+  box-shadow:inset 0 0 2px 1px #AADAFA; 
+  transition:0; 
+}
+
+.earth {
+    height: 20px;
+    width: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-color:#0066CC; 
+}
+
+
+
+#earth-orbit {
+    width: 240px;
+    height: 240px;
+    margin-top: -120px;
+    margin-left: -120px;
+
+  -webkit-animation: spin-right 3.65s linear infinite;
+     -moz-animation: spin-right 3.65s linear infinite;
+      -ms-animation: spin-right 3.65s linear infinite;
+       -o-animation: spin-right 3.65s linear infinite;
+          animation: spin-right 3.65s linear infinite;
+}
+
+.venus {
+    height: 18px;
+    width: 18px;
+    margin-left: -9px;
+    margin-top: -9px;
+    background-color:brown;
+}
+#venus-orbit {
+    width: 180px;
+    height: 180px;
+    margin-top: -90px;
+    margin-left: -90px;
+
+  -webkit-animation: spin-right 2.24s linear infinite;
+     -moz-animation: spin-right 2.24s linear infinite;
+      -ms-animation: spin-right 2.24s linear infinite;
+       -o-animation: spin-right 2.24s linear infinite;
+          animation: spin-right 2.24s linear infinite;
+}
+
+.merc {
+    height: 14px;
+    width: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color:#8C0B0B;
+}
+#merc-orbit {
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-left: -60px;
+
+  -webkit-animation: spin-right 0.88s linear infinite;
+     -moz-animation: spin-right 0.88s linear infinite;
+      -ms-animation: spin-right 0.88s linear infinite;
+       -o-animation: spin-right 0.88s linear infinite;
+          animation: spin-right 0.88s linear infinite;
+}
+
+.mars {
+    height: 14px;
+    width: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color:#A64B02;
+}
+
+#mars-orbit {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+
+  -webkit-animation: spin-right 6.87s linear infinite;
+     -moz-animation: spin-right 6.87s linear infinite;
+      -ms-animation: spin-right 6.87s linear infinite;
+       -o-animation: spin-right 6.87s linear infinite;
+          animation: spin-right 6.87s linear infinite;
+}
+
+#abelt {
+    height: 360px;
+    width: 360px;
+    opacity:.3;
+    transition:1s; 
+}
+#abelt:hover{
+  opacity:1;
+  transition:0; 
+}
+
+ #abelt-orbit {
+       position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 360px;
+    height: 360px;
+    margin-top: -180px;
+    margin-left: -180px;
+  -webkit-animation: spin-right 20s linear infinite;
+     -moz-animation: spin-right 20s linear infinite;
+      -ms-animation: spin-right 20s linear infinite;
+       -o-animation: spin-right 20s linear infinite;
+          animation: spin-right 20s linear infinite;
+}
+
+.jup {
+    height: 30px;
+    width: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+    background-color:#A1CC68;
+}
+
+#jup-orbit {
+    width: 450px;
+    height: 450px;
+    margin-top: -225px;
+    margin-left: -225px;
+
+  -webkit-animation: spin-right 43s linear infinite;
+     -moz-animation: spin-right 43s linear infinite;
+      -ms-animation: spin-right 43s linear infinite;
+       -o-animation: spin-right 43s linear infinite;
+          animation: spin-right 439s linear infinite;
+}
+
+
+.sat {
+    height: 20px;
+    width: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    background-color:orange;
+}
+.satRing {
+    height: 32px;
+    width: 32px;
+    margin-left: -22px;
+    margin-top: -22px;
+    border:6px solid orange;
+    
+    border-radius: 50%;
+}
+
+#sat-orbit {
+    width: 560px;
+    height: 560px;
+    margin-top: -280px;
+    margin-left: -280px;
+  
+
+  -webkit-animation: spin-right 107s linear infinite;
+     -moz-animation: spin-right 107s linear infinite;
+      -ms-animation: spin-right 107s linear infinite;
+       -o-animation: spin-right 107s linear infinite;
+          animation: spin-right 107s linear infinite;
+}
+
+
+.ura {
+    height: 14px;
+    width: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color:#8CCEFA;
+}
+
+
+#ura-orbit {
+    width: 640px;
+    height: 640px;
+    margin-top: -320px;
+    margin-left: -320px;
+
+  -webkit-animation: spin-right 307s linear infinite;
+     -moz-animation: spin-right 307s linear infinite;
+      -ms-animation: spin-right 307s linear infinite;
+       -o-animation: spin-right 307s linear infinite;
+          animation: spin-right 307s linear infinite;
+}
+
+.nep {
+    height: 14px;
+    width: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    background-color:#307DB0;
+}
+
+#nep-orbit {
+    width: 700px;
+    height: 700px;
+    margin-top: -350px;
+    margin-left: -350px;
+
+  -webkit-animation: spin-right 602s linear infinite;
+     -moz-animation: spin-right 602s linear infinite;
+      -ms-animation: spin-right 602s linear infinite;
+       -o-animation: spin-right 602s linear infinite;
+          animation: spin-right 602s linear infinite;
+}
+
+.planetImg{
+  background-size:cover;
+  background-position:center;
+  height:140px;
+}

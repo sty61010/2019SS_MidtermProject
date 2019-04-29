@@ -72,7 +72,7 @@ var notifyConfig = {
         body: "\\ ^o^ /",
         icon: "https://cythilya.github.io/public/favicon.ico"
     }
-  
+    
 function createNotify() {
     if (!("Notification" in window)) { // 檢查瀏覽器是否支援通知
         console.log("This browser does not support notification");
