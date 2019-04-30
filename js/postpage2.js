@@ -65,7 +65,7 @@ function init() {
     var comRef=firebase.database().ref('com_list2'+id);
     post_btn.addEventListener('click', function () {
         if (post_txt.value != "") {
-            var newPostKey = firebase.database().ref().child('com_list'+id).push().key;
+            var newPostKey = firebase.database().ref().child('com_list2'+id).push().key;
             var comData = {
                 id:newPostKey,
                 email:user_email,
