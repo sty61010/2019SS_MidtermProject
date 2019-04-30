@@ -4,7 +4,7 @@ body {
   background-color:#3366ff;
   height: 100%;
   width: 100%;
-/*   overflow: hidden; */
+  overflow: hidden;
   font-family: 'Archivo Narrow', sans-serif;
 }
 h1{

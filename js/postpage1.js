@@ -25,9 +25,7 @@ function init() {
 
     post_btn = document.getElementById('post_btn');
     post_txt = document.getElementById('comment');
-
-
-
+    
     var url=window.location.search; 
     var id;
 
