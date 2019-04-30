@@ -62,7 +62,7 @@ Post Page
 # 作品網址：[https://midtermproject-106034061.firebaseapp.com/index.html]
 
 # Components Description : 
-1. [key function] : [You enter into the home when you go to the index.html, and you can see several topics(because of the deadline, I only implement first two topics), you can post “go check" to see postlistpage, then In "postlistpage", you can push"go check" to go to postpage, where you can leave your comments.]
+1. [key function] : [You enter into the home when you go to the index.html, and you can see several topics, you can post “go check" to see postlistpage, then In "postlistpage", you can push"go check" to go to postpage, where you can leave your comments.]
 
 ![](https://i.imgur.com/o83wpeU.png)
 
@@ -75,12 +75,17 @@ Post Page
 4. [Database read/write]:[using "push"to push data and on to listen to alters]
 ![](https://i.imgur.com/5Eb1Rvg.png)
 5. [RWD]:[using bootstrap]
+![](https://i.imgur.com/UZ9QAdd.png)
 
 # Other Functions Description(1~10%) : 
-1. [xxxx] : [xxxx]
-2. [xxxx] : [xxxx]
-3. [xxxx] : [xxxx]
-...
+1. [Canvas] : [I combine first assignment into my social website]
+![](https://i.imgur.com/SkVuBDc.png)
+
+3. [Game] : [I add small game and do some alters(css/js), to it]
+![](https://i.imgur.com/nMAiaTj.png)
+
+4. [Chatting Room] : [Add to small chatting room with no user detection]
+![](https://i.imgur.com/ULEoTwf.png)
 
 ## Security Report (Optional)
 
