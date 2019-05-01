@@ -66,7 +66,7 @@ Post Page
 
 ![](https://i.imgur.com/o83wpeU.png)
 
-3. [Membership Mechanism] : [You can't browse the postlistpage with no signning in. you can go to the "Account" to go to sign in page]
+2. [Membership Mechanism] : [You can't browse the postlistpage with no signning in. you can go to the "Account" to go to sign in page]
 ![](https://i.imgur.com/jk02Bd9.png)
 
 3. [firebase page] : [Deploy on firebase page![Uploading file..._u5ybn52c7]()
@@ -81,12 +81,12 @@ Post Page
 1. [Canvas] : [I combine first assignment into my social website]
 ![](https://i.imgur.com/SkVuBDc.png)
 
-3. [Game] : [I add small game and do some alters(css/js), to it]
+2. [Game] : [I add small game and do some alters(css/js), to it]
 ![](https://i.imgur.com/nMAiaTj.png)
 
-4. [Chatting Room] : [Add to small chatting room with no user detection]
+3. [Chatting Room] : [Add to small chatting room with no user detection]
 ![](https://i.imgur.com/ULEoTwf.png)
-5. [comments with html code detection(security)]:[avoid html code included.]
+4. [comments with html code detection(security)]:[avoid html code included.]
 ![](https://i.imgur.com/Af6NY7C.png)
 
 ## Security Report (Optional)
