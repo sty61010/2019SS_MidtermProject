@@ -62,17 +62,22 @@ function init() {
 
     var comRef=firebase.database().ref('com_list1'+id);
     post_btn.addEventListener('click', function () {
-        if (post_txt.value != "") {
-            var newPostKey = firebase.database().ref().child('com_list1'+id).push().key;
-            var comData = {
-                id:newPostKey,
-                email:user_email,
-                comment:post_txt.value
-            };
-            var updates = {};
-            updates[newPostKey] = comData;
-            comRef.update(updates);
-            post_txt.value = "";
+        if(post_txt.value.search("<")!=-1){
+            alert("No html inclusion");
+        }
+        else{
+            if (post_txt.value != "") {
+                var newPostKey = firebase.database().ref().child('com_list1'+id).push().key;
+                var comData = {
+                    id:newPostKey,
+                    email:user_email,
+                    comment:post_txt.value
+                };
+                var updates = {};
+                updates[newPostKey] = comData;
+                comRef.update(updates);
+                post_txt.value = "";
+            }
         }
     });
     var str_before_username = "<div class='my-3 p-3 bg-white rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent updates</h6><div class='media text-muted pt-3'><img src='img/test.svg' alt='' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small lh-125 border-bottom border-gray'><strong class='d-block text-gray-dark'>";

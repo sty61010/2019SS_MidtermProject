@@ -29,22 +29,27 @@ function init() {
 
     var postsRef = firebase.database().ref('post_list4');
     post_btn.addEventListener('click', function () {
-        if (post_txt.value != "") {
-            var newPostKey = firebase.database().ref().child('post_list4').push().key;
-            var postData = {
-                id:newPostKey,
-                email:user_email,
-                post:post_txt.value
-            };
-            var updates = {};
-            updates[newPostKey] = postData;
-            postsRef.update(updates);
-            post_txt.value = "";
-            window.location.href = "postlistpage4.html";            
+        if(post_txt.value.search("<")!==-1){
+            alert("No html inclusion");
+        }
+        else{
+            if (post_txt.value != "") {
+                var newPostKey = firebase.database().ref().child('post_list4').push().key;
+                var postData = {
+                    id:newPostKey,
+                    email:user_email,
+                    post:post_txt.value
+                };
+                var updates = {};
+                updates[newPostKey] = postData;
+                postsRef.update(updates);
+                post_txt.value = "";
+                window.location.href = "postlistpage4.html";            
+            }
         }
     });
 
-    }
+}
 window.onload = function () {
     init();
 };

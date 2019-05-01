@@ -86,6 +86,11 @@ Post Page
 
 4. [Chatting Room] : [Add to small chatting room with no user detection]
 ![](https://i.imgur.com/ULEoTwf.png)
+5. [comments with html code detection(security)]:[avoid html code included.]
+![](https://i.imgur.com/Af6NY7C.png)
 
 ## Security Report (Optional)
-
+1. [URL detection]:[In order to avoid malware included, I reject all other html URL inclusion.]
+![](https://i.imgur.com/t4PFzlz.png)
+2. [comments with malware inclusion]:[avoid html code included.]
+![](https://i.imgur.com/dAHU6UU.png)
