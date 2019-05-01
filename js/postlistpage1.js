@@ -40,7 +40,10 @@ function init() {
              "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
              "</div>"+
              "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
-            "<a class='btn btn-danger' "+
+             "<img src='like.jpg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button'>"+
+             "<img src='fuck.jpeg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button'>"+
+
+             "<a class='btn btn-danger' "+
             // "href='postpage.html'"+
             " role='button' onclick='getID("+index+")')>Go Check</a>"+
              "</div>\n </p > ";

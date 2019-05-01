@@ -34,17 +34,23 @@ function init() {
     post_btn = document.getElementById('post_btn');
     var postsRef = firebase.database().ref('post_list0');
     post_btn.addEventListener('click', function () {
-        if (post_txt.value != "") {
-            var newPostKey = firebase.database().ref().child('post_list0').push().key;
-            var postData = {
-                id:newPostKey,
-                email:user_email,
-                post:post_txt.value
-            };
-            var updates = {};
-            updates[newPostKey] = postData;
-            postsRef.update(updates);
-            post_txt.value = "";       
+        if(post_txt.value.search("<")!==-1){
+            alert("No html inclusion");
+        }
+        else{
+            if (post_txt.value != "") {
+                var newPostKey = firebase.database().ref().child('post_list0').push().key;
+                var postData = {
+                    id:newPostKey,
+                    email:user_email,
+                    post:post_txt.value
+                };
+                var updates = {};
+                updates[newPostKey] = postData;
+                postsRef.update(updates);
+                post_txt.value = "";
+                window.location.href = "postlistpage1.html";            
+            }
         }
     });
     var str_before_username = "<div class='my-3 p-3 bg-dark rounded box-shadow'><h6 class='border-bottom border-gray pb-2 mb-0'>Recent comments</h6><div class='media text-muted pt-3'><img src='logo.png' class='mr-2 rounded' style='height:32px; width:32px;'><p class='media-body pb-3 mb-0 small text-white border-bottom border-gray'><strong class='d-block text-white'>";

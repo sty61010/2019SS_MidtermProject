@@ -55,7 +55,7 @@ Post Page
 ![](https://i.imgur.com/jFZanju.png)
 ![](https://i.imgur.com/agguq2v.png)
 ![](https://i.imgur.com/bqnePgx.jpg)
-|Security Report|5%|N|
+|Security Report|5%|Y|
 
 ## Website Detail Description
 
