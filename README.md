@@ -95,7 +95,8 @@ Post Page
 ![](https://i.imgur.com/zlcl8Ju.png)
 7. [time]:[each post contain time value]
 ![](https://i.imgur.com/uKcNNRJ.png)
-8. [comment delete]:[you can delete your own comment]
+8. [comment delete]:[you can delete your own comment(user detection)]
+![](https://i.imgur.com/dsrDdSw.png)
 ![](https://i.imgur.com/NrQ8lnt.png)
 
 ## Security Report (Optional)
