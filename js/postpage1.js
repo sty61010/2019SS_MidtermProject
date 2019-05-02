@@ -116,7 +116,6 @@ function init() {
                 "<a class='btn btn-danger' "+" role='button' onclick='deleteCom("+index+")')>Delete</a></p>"+
                 "</div>\n </p > ";
             }
-
         }
         document.getElementById('com_list').innerHTML = total_com;
     });
@@ -179,7 +178,12 @@ id = url.substr(url.indexOf("?")+1);
 var post_email;
 var user_email;
 var comRef=firebase.database().ref('com_list1'+id);
-var user = firebase.auth().currentUser;
+var user = firebase.auth().currentU
+firebase.auth().onAuthStateChanged(function(user) { 
+    if (user) {
+        user_email=user.email;
+    }
+});
 function deleteCom(index){
     console.log("index",index);
     var count=0;
@@ -188,7 +192,9 @@ function deleteCom(index){
         for (var i in snapshot.val()) {
             count++;
             console.log("count",count)
-            if(count==index ){
+            console.log("user email", user_email);
+            console.log("comment email", snapshot.val()[i].email);
+            if(count==index && user_email==snapshot.val()[i].email){
                 var ID=snapshot.val()[i].id;
                 console.log("ID",ID);
                 firebase.database().ref('com_list1'+id+'/'+ID).set({
@@ -201,9 +207,7 @@ function deleteCom(index){
                     del:delete_val
                 }); 
                 console.log("delete val", snapshot.val()[i].del);
-
             }
-            
         }
     });
 }

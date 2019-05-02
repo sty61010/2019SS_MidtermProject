@@ -100,18 +100,23 @@ function init() {
     var total_com = [];
     comRef.on('value', function (snapshot) {
         total_com = [];
+        var index=0;
         document.getElementById('com_list').innerHTML = "";
         for (var i in snapshot.val()) {
-            total_com +=
-             "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
-             "<div class='media text-muted pt-3'>"+
-             "<img src='user.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
-             "<div class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + ":</strong>"+
-             "<h6>"+snapshot.val()[i].comment+ "</h6>"+
-             "</div>"+
-             "</div>"+
-            //  "<p class='border-bottom border-blue pb-2 '>"+"<strong>"+ snapshot.val()[i].comment +"</strong>"+"</p>"+
-             "</div>\n </p > ";
+            index++;
+            if(snapshot.val()[i].del==1)
+            {
+                total_com +=
+                "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
+                "<div class='media text-muted pt-3'>"+
+                "<img src='user.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
+                "<div class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + ":</strong>"+
+                "<h6>"+snapshot.val()[i].comment+ "</h6>"+
+                "</div>"+
+                "</div>"+
+                "<a class='btn btn-danger' "+" role='button' onclick='deleteCom("+index+")')>Delete</a></p>"+
+                "</div>\n </p > ";
+            }
         }
         document.getElementById('com_list').innerHTML = total_com;
 
@@ -162,6 +167,46 @@ function push_fuck(index, fuck_value){
             }
         }
         console.log("fuck_value", snapshot.val()[i].fuck);
+    });
+}
+//////////////////////////////////////////////////////////////////
+var url=window.location.search; 
+var id;
+id = url.substr(url.indexOf("?")+1);
+var post_email;
+var user_email;
+var comRef=firebase.database().ref('com_list2'+id);
+var user = firebase.auth().currentU
+firebase.auth().onAuthStateChanged(function(user) { 
+    if (user) {
+        user_email=user.email;
+    }
+});
+function deleteCom(index){
+    console.log("index",index);
+    var count=0;
+    var delete_val=2;
+    comRef.once('value', function (snapshot) {
+        for (var i in snapshot.val()) {
+            count++;
+            console.log("count",count)
+            console.log("user email", user_email);
+            console.log("comment email", snapshot.val()[i].email);
+            if(count==index && user_email==snapshot.val()[i].email){
+                var ID=snapshot.val()[i].id;
+                console.log("ID",ID);
+                firebase.database().ref('com_list2'+id+'/'+ID).set({
+                    id:ID,
+                    email:snapshot.val()[i].email,
+                    comment:snapshot.val()[i].comment,
+                    like:snapshot.val()[i].like,
+                    time:snapshot.val()[i].time,
+                    fuck:snapshot.val()[i].fuck,
+                    del:delete_val
+                }); 
+                console.log("delete val", snapshot.val()[i].del);
+            }
+        }
     });
 }
 window.onload = function () {

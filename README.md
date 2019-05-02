@@ -93,9 +93,10 @@ Post Page
 ![](https://i.imgur.com/teLh1lc.png)
 6. [Dislike]:[push can get dislike value+1 to firebase database]
 ![](https://i.imgur.com/zlcl8Ju.png)
-8. [time]:[each post contain time value]
+7. [time]:[each post contain time value]
 ![](https://i.imgur.com/uKcNNRJ.png)
-
+8. [comment delete]:[you can delete your own comment]
+![](https://i.imgur.com/NrQ8lnt.png)
 
 ## Security Report (Optional)
 1. [URL detection]:[In order to avoid malware included, I reject all other html URL inclusion.]
