@@ -39,23 +39,31 @@ function init() {
         for (var i in snapshot.val()) {
             index++;
             total_post +=
-             "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
-             "<div class='my-2 border-bottom border-dark'><strong>PostID:</strong>"+i+"</div>"+
-             "<div class='media text-muted pt-3'>"+
-             "<img src='account.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
-             "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
-             "</div>"+
-             "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
-            "<a class='btn btn-danger' "+
-            // "href='postpage.html'"+
-            " role='button' onclick='getID("+index+")')>Go Check</a>"+
-             "</div>\n </p > ";
+            "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
+            "<div class='my-2 border-bottom border-dark'><strong>PostID:</strong>"+i+"</div>"+
+            "<div class='media text-muted pt-3'>"+
+            "<img src='account.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
+            "<p class='media-body pb-2 mb-2 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
+            "</div>"+
+            "<h3 class='pb-4 mb-4 my-3 border-bottom   border-blue  '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h3>"+
+            //  "<img src='like.jpg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+
+            //  "<img src='fuck.jpeg' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+
+            "<p class='media-body pb-1 mb-1 lh-125  border-bottom border-blue' style='text-shadow:1px 1px 0 #444; color:gray'>"+
+            "<strong>"+
+            "<img src='like1.png'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+snapshot.val()[i].like +
+            "<img src='fuck1.png' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+snapshot.val()[i].fuck +
+            "</strong>"+
+            "</p>"+
+            "<a class='btn btn-danger' "+" role='button' onclick='getID("+index+")')>Go Check</a></p>"+
+
+            "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+snapshot.val()[i].time +"</p>"+
+            "</div>\n </p > ";
         }
         document.getElementById('post_list').innerHTML = total_post;
     })
 
 }
-var postsRef = firebase.database().ref('post_list1');
+var postsRef = firebase.database().ref('post_list3');
 function push_like(index, like_value){
     console.log("index", index);
     count=0;
@@ -66,7 +74,7 @@ function push_like(index, like_value){
             if(count==index){
                 var ID=snapshot.val()[i].id;
                 console.log("ID",ID);
-                firebase.database().ref('post_list1/' + ID).set({
+                firebase.database().ref('post_list3/' + ID).set({
                         id:ID,
                         email:snapshot.val()[i].email,
                         post:snapshot.val()[i].post,
@@ -89,7 +97,7 @@ function push_fuck(index, fuck_value){
             if(count==index){
                 var ID=snapshot.val()[i].id;
                 console.log("ID",ID);
-                firebase.database().ref('post_list1/' + ID).set({
+                firebase.database().ref('post_list3/' + ID).set({
                         id:ID,
                         email:snapshot.val()[i].email,
                         post:snapshot.val()[i].post,

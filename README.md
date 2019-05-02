@@ -69,9 +69,10 @@ Post Page
 2. [Membership Mechanism] : [You can't browse the postlistpage with no signning in. you can go to the "Account" to go to sign in page]
 ![](https://i.imgur.com/jk02Bd9.png)
 
-3. [firebase page] : [Deploy on firebase page![Uploading file..._u5ybn52c7]()
+3. [firebase page] : [Deploy on firebase page]
+![](https://i.imgur.com/hqKbgGs.png)
 ![](https://i.imgur.com/BHbiReh.png)
-]
+
 4. [Database read/write]:[using "push"to push data and on to listen to alters]
 ![](https://i.imgur.com/5Eb1Rvg.png)
 5. [RWD]:[using bootstrap]
@@ -88,6 +89,13 @@ Post Page
 ![](https://i.imgur.com/ULEoTwf.png)
 4. [comments with html code detection(security)]:[avoid html code included.]
 ![](https://i.imgur.com/Af6NY7C.png)
+5. [like]:[push can get like value+1 to firebase database]
+![](https://i.imgur.com/teLh1lc.png)
+6. [Dislike]:[push can get dislike value+1 to firebase database]
+![](https://i.imgur.com/zlcl8Ju.png)
+8. [time]:[each post contain time value]
+![](https://i.imgur.com/uKcNNRJ.png)
+
 
 ## Security Report (Optional)
 1. [URL detection]:[In order to avoid malware included, I reject all other html URL inclusion.]

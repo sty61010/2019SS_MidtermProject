@@ -37,17 +37,19 @@ function init() {
             "<div class='my-2 border-bottom border-dark'><strong>PostID:</strong>"+i+"</div>"+
             "<div class='media text-muted pt-3'>"+
             "<img src='account.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
-            "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
+            "<p class='media-body pb-2 mb-2 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
             "</div>"+
-            "<h5 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h5>"+
+            "<h3 class='pb-4 mb-4 my-3 border-bottom   border-blue  '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h3>"+
             //  "<img src='like.jpg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+
             //  "<img src='fuck.jpeg' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+
-            "<p class='media-body pb-3 mb-3  lh-125' style='blue sans-serif'>"+
-            "<img src='like.jpg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+snapshot.val()[i].like +
-            "<img src='fuck.jpeg' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+snapshot.val()[i].fuck +
-            "<a class='btn btn-danger' "+" role='button' onclick='getID("+index+")')>Go Check</a>"+
-
+            "<p class='media-body pb-1 mb-1 lh-125  border-bottom border-blue' style='text-shadow:1px 1px 0 #444; color:gray'>"+
+            "<strong>"+
+            "<img src='like1.png'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+snapshot.val()[i].like +
+            "<img src='fuck1.png' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+snapshot.val()[i].fuck +
+            "</strong>"+
             "</p>"+
+            "<a class='btn btn-danger' "+" role='button' onclick='getID("+index+")')>Go Check</a></p>"+
+
             "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+snapshot.val()[i].time +"</p>"+
             "</div>\n </p > ";
         }

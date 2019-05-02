@@ -28,7 +28,6 @@ function init() {
     
     var url=window.location.search; 
     var id;
-
     id = url.substr(url.indexOf("?")+1);
 
     console.log(id);
@@ -36,7 +35,7 @@ function init() {
     // var postsRef = firebase.database().ref('post_list1/'+id+'/comment_list');
     var postsRef = firebase.database().ref('post_list1');
     var total_post = [];
-    postsRef.once('value', function (snapshot) {
+    postsRef.on('value', function (snapshot) {
         total_post = [];
         var index=0;
         document.getElementById('post_list').innerHTML = "";
@@ -44,14 +43,25 @@ function init() {
             index++;
             if(index==id)
             {
+                post_email=snapshot.val()[i].email;
+                console.log("post_email",post_email);
                 total_post +=
                 "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
                 "<div class='my-2 border-bottom border-dark'><strong>PostID:</strong>"+i+"</div>"+
                 "<div class='media text-muted pt-3'>"+
-                "<img src='01.jpg'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
-                "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
+                "<img src='account.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
+                "<p class='media-body pb-2 mb-2 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + "</strong>" +"</p>"+
                 "</div>"+
-                "<h1 class='border-bottom border-blue pb-2 '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h1>"+
+                "<h3 class='pb-4 mb-4 my-3 border-bottom   border-blue  '>"+"Topic:"+"<strong>"+ snapshot.val()[i].post +"</strong>"+"</h3>"+
+                //  "<img src='like.jpg'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+
+                //  "<img src='fuck.jpeg' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+
+                "<p class='media-body pb-1 mb-1 lh-125  border-bottom border-blue' style='text-shadow:1px 1px 0 #444; color:gray'>"+
+                "<strong>"+
+                "<img src='like1.png'  class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_like("+index+","+snapshot.val()[i].like+")'>"+snapshot.val()[i].like +
+                "<img src='fuck1.png' class='mr-2 rounded' style='height:40px; width:40px;' role='button' onclick='push_fuck("+index+","+snapshot.val()[i].fuck+")'>"+snapshot.val()[i].fuck +
+                "</strong>"+
+                "</p>"+
+                "<p class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+snapshot.val()[i].time +"</p>"+
                 "</div>\n </p > ";
             }
 
@@ -71,10 +81,11 @@ function init() {
                 var comData = {
                     id:newPostKey,
                     email:user_email,
-                    post:post_txt.value,
+                    comment:post_txt.value,
                     like:0,
                     fuck:0,
-                    time:Date()
+                    time:Date(),
+                    del:1
                 };
                 var updates = {};
                 updates[newPostKey] = comData;
@@ -88,22 +99,29 @@ function init() {
     var total_com = [];
     comRef.on('value', function (snapshot) {
         total_com = [];
+        var index=0;
         document.getElementById('com_list').innerHTML = "";
         for (var i in snapshot.val()) {
-            total_com +=
-             "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
-             "<div class='media text-muted pt-3'>"+
-             "<img src='user.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
-             "<div class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + ":</strong>"+
-             "<h6>"+snapshot.val()[i].comment+ "</h6>"+
-             "</div>"+
-             "</div>"+
-            //  "<p class='border-bottom border-blue pb-2 '>"+"<strong>"+ snapshot.val()[i].comment +"</strong>"+"</p>"+
-             "</div>\n </p > ";
+            index++;
+            if(snapshot.val()[i].del==1)
+            {
+                total_com +=
+                "<p><div class='my-3 p-3 bg-white rounded box-shadow'>"+
+                "<div class='media text-muted pt-3'>"+
+                "<img src='user.png'  class='mr-2 rounded' style='height:32px; width:32px;'>"+
+                "<div class='media-body pb-3 mb-3 small lh-125 border-bottom border-gray'>"+"<strong class='d-block text-blue-dark'>"+snapshot.val()[i].email + ":</strong>"+
+                "<h6>"+snapshot.val()[i].comment+ "</h6>"+
+                "</div>"+
+                "</div>"+
+                "<a class='btn btn-danger' "+" role='button' onclick='deleteCom("+index+")')>Delete</a></p>"+
+                "</div>\n </p > ";
+            }
+
         }
         document.getElementById('com_list').innerHTML = total_com;
-
     });
+    // delete com
+
 
 }
 var postsRef = firebase.database().ref('post_list1');
@@ -123,7 +141,7 @@ function push_like(index, like_value){
                         post:snapshot.val()[i].post,
                         like:like_value,
                         time:snapshot.val()[i].time,
-                        fuck:snapshot.val()[i].fuck
+                        fuck:snapshot.val()[i].fuck,
                     }); 
             }
         }
@@ -150,7 +168,43 @@ function push_fuck(index, fuck_value){
                     }); 
             }
         }
-        console.log("fuck_value", snapshot.val()[i].fuck);
+        console.log("fuck_value", fuck_value);
+    });
+}
+
+//////////////////////////////////////////////////////////////////
+var url=window.location.search; 
+var id;
+id = url.substr(url.indexOf("?")+1);
+var post_email;
+var user_email;
+var comRef=firebase.database().ref('com_list1'+id);
+var user = firebase.auth().currentUser;
+function deleteCom(index){
+    console.log("index",index);
+    var count=0;
+    var delete_val=2;
+    comRef.once('value', function (snapshot) {
+        for (var i in snapshot.val()) {
+            count++;
+            console.log("count",count)
+            if(count==index ){
+                var ID=snapshot.val()[i].id;
+                console.log("ID",ID);
+                firebase.database().ref('com_list1'+id+'/'+ID).set({
+                    id:ID,
+                    email:snapshot.val()[i].email,
+                    comment:snapshot.val()[i].comment,
+                    like:snapshot.val()[i].like,
+                    time:snapshot.val()[i].time,
+                    fuck:snapshot.val()[i].fuck,
+                    del:delete_val
+                }); 
+                console.log("delete val", snapshot.val()[i].del);
+
+            }
+            
+        }
     });
 }
 window.onload = function () {
