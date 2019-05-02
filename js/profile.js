@@ -1,5 +1,8 @@
 function init() {
     var user_email = '';
+    var user_name;
+    var user_hobby;
+    var user_identity;
     firebase.auth().onAuthStateChanged(function (user) {
         var menu = document.getElementById('dynamic-menu');
         if (user) {
@@ -15,21 +18,32 @@ function init() {
                 .catch(function () {
                     console.log("Sign Out Error");
                 });
-            })
+            });
+            document.getElementById("email").innerHTML=user_email;
         } else {
             menu.innerHTML = "<a class='dropdown-item' href='signin.html'>Login</a>";
             document.getElementById('post_list').innerHTML = "";
         }
     });
-    var postlistpage1=document.getElementById("postlistpage1");
-    postlistpage1.addEventListener('click', function () {
-        window.location.href = "postlistpage1.html";            
-    });
-    var postlistpage2=document.getElementById("postlistpage2");
-    postlistpage2.addEventListener('click', function () {
-        window.location.href = "postlistpage2.html";            
+    var name_btn=document.getElementById("name_btn");
+    var nameinput=document.getElementById("nameinput");
+    name_btn.addEventListener('click', function () {
+        document.getElementById('name').innerHTML = nameinput.value;
     });
 
+    var hobby_btn=document.getElementById("hobby_btn");
+    var hobbyinput=document.getElementById("hobbyinput");
+    hobby_btn.addEventListener('click', function () {
+        document.getElementById('hobby').innerHTML = hobbyinput.value;
+
+    });
+
+    var identity_btn=document.getElementById("identity_btn");
+    var identityinput=document.getElementById("identityinput");
+    identity_btn.addEventListener('click', function () {
+        document.getElementById('identity').innerHTML = identityinput.value;
+
+    });
     post_txt = document.getElementById('comment');
     post_btn = document.getElementById('post_btn');
     var postsRef = firebase.database().ref('post_list0');
@@ -101,33 +115,3 @@ function createNotify() {
 window.onload = function () {
     init();
 };
-// function Notification(){
-//     if (!('Notification' in window)){
-//         console.log('This browser does not support notification');
-//     }
-//     if (Notification.permission === 'default' || Notification.permission === 'undefined') {
-//         Notification.requestPermission(function (permission) {
-//           // permission 可為「granted」（同意）、「denied」（拒絕）和「default」（未授權）
-//           // 在這裡可針對使用者的授權做處理
-//         });
-//       }
-//     var notifyConfig = {
-//         body: 'notification', // 設定內容
-//         icon: 'notification.png' // 設定 icon
-//       };
-      
-//     if (Notification.permission === 'default' || Notification.permission === 'undefined') {
-//         Notification.requestPermission(function (permission) {
-//             if (permission === 'granted') { // 使用者同意授權
-//                 var notification = new Notification('Hi there!', notifyConfig); // 建立通知
-
-                  
-//                 notify.onclick = function(e) { // 綁定點擊事件
-//                     e.preventDefault(); // prevent the browser from focusing the Notification's tab
-//                     console.log("Here is Notification!")
-//                 }
-//             }
-//         });
-//     }
-
-// }

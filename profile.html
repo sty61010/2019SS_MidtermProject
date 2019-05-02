@@ -114,7 +114,7 @@
         </h1>
         <a class="btn btn-danger btn-lg" href="canvas.html" role="button">Canvas</a>
         <a class="btn btn-primary btn-lg" href="userpage1.html" role="button">Post</a>
-        <a class="btn btn-warning btn-lg" href="https://www.facebook.com/" role="button">Profile</a>
+        <a class="btn btn-warning btn-lg" href="profile.html" role="button">Profile</a>
         <a class="btn btn-success btn-lg" href="chat.html" role="button">Chat</a>
         <a class="btn btn-info btn-lg" href="#" role="button"onclick="createNotify()" >Notify</a>
 
@@ -123,24 +123,39 @@
 </div>
 
 <div class="container">
-    <h2><strong>Topics</strong></h2>   
+    <h2><strong>Personal Profile</strong></h2>   
     <table class="table table-hover">
         <tbody>
             <tr>
-                <td class="bg-primary text-white">Techology and Information</td>
-                <td class=" text-white" id="postlistpage1"><a class="btn btn-danger" href="postlistpage1.html" role="button">Go Check</a></td>
+                <td class="bg-primary text-white">Name</td>
+                <td class=" text-white"  id="name">
+                    <textarea class="form-control" rows="1" id="nameinput" style="resize:none"></textarea>
+                    <div class="media text-muted pt-3">
+                        <button id="name_btn" type="button" class="btn btn-warning">Change</button>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td class="bg-success text-white">Gossip</td>
-                <td class=" text-white" id="postlistpage2"><a class="btn btn-danger" href="postlistpage2.html" role="button">Go Check</a></td>
+                <td class="bg-success text-white">Email</td>
+                <td class=" text-white" id="email"></td>
             </tr>
             <tr>
-                <td class="bg-info text-white">Entertainment</td>
-                <td class="text-white" id="postlistpage3"><a class="btn btn-danger" href="postlistpage3.html" role="button">Go Check</a></td>
+                <td class="bg-info text-white">Hobby</td>
+                <td class="text-white" id="hobby">
+                    <textarea class="form-control" rows="1" id="hobbyinput" style="resize:none"></textarea>
+                    <div class="media text-muted pt-3">
+                        <button id="hobby_btn" type="button" class="btn btn-warning">Change</button>
+                    </div>
+                </td>
             </tr>
             <tr>
-                <td class="bg-warning text-white">Movie and Youtube</td>
-                <td class="text-white" id="postlistpage4"><a class="btn btn-danger" href="postlistpage4.html" role="button">Go Check</a></td>
+                <td class="bg-warning text-white">Identity</td>
+                <td class="text-white" id="identity">
+                    <textarea class="form-control" rows="1" id="identityinput" style="resize:none"></textarea>
+                        <div class="media text-muted pt-3">
+                            <button id="identity_btn" type="button" class="btn btn-warning">Change</button>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
