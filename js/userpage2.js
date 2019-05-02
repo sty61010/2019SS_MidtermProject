@@ -38,7 +38,10 @@ function init() {
                 var postData = {
                     id:newPostKey,
                     email:user_email,
-                    post:post_txt.value
+                    post:post_txt.value,
+                    like:0,
+                    fuck:0,
+                    time:Date()
                 };
                 var updates = {};
                 updates[newPostKey] = postData;

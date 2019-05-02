@@ -94,3 +94,7 @@ Post Page
 ![](https://i.imgur.com/t4PFzlz.png)
 2. [comments with malware inclusion]:[avoid html code included.]
 ![](https://i.imgur.com/dAHU6UU.png)
+3. [html detection]:[detect html and clear ]
+![](https://i.imgur.com/KZZBnYK.png)
+
+![](https://i.imgur.com/JIzdpTU.png)

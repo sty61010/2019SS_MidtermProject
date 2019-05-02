@@ -65,7 +65,7 @@
 
         <div class="  bg-white rounded box-shadow">
             <h5 class="border-bottom border-gray pb-2 mb-0">New Post</h5>
-            <textarea class="form-control" rows="10" id="post" style="resize:none"></textarea>
+            <textarea  onkeypress="disableHtml(this);" class="form-control" rows="10" id="post" style="resize:none"></textarea>
             <div class="pt-3">
                 <button id="post_btn" type="button" class="btn btn-success">Post</button>
             </div>

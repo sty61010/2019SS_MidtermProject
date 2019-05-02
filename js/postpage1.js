@@ -71,7 +71,10 @@ function init() {
                 var comData = {
                     id:newPostKey,
                     email:user_email,
-                    comment:post_txt.value
+                    post:post_txt.value,
+                    like:0,
+                    fuck:0,
+                    time:Date()
                 };
                 var updates = {};
                 updates[newPostKey] = comData;
@@ -102,6 +105,53 @@ function init() {
 
     });
 
+}
+var postsRef = firebase.database().ref('post_list1');
+function push_like(index, like_value){
+    console.log("index", index);
+    count=0;
+    like_value++;
+    postsRef.once('value', function (snapshot) {
+        for (var i in snapshot.val()) {
+            count++;
+            if(count==index){
+                var ID=snapshot.val()[i].id;
+                console.log("ID",ID);
+                firebase.database().ref('post_list1/' + ID).set({
+                        id:ID,
+                        email:snapshot.val()[i].email,
+                        post:snapshot.val()[i].post,
+                        like:like_value,
+                        time:snapshot.val()[i].time,
+                        fuck:snapshot.val()[i].fuck
+                    }); 
+            }
+        }
+    });
+    console.log("like_value", like_value);
+}
+function push_fuck(index, fuck_value){
+    console.log("index",index);
+    count=0;
+    fuck_value++;
+    postsRef.once('value', function (snapshot) {
+        for (var i in snapshot.val()) {
+            count++;
+            if(count==index){
+                var ID=snapshot.val()[i].id;
+                console.log("ID",ID);
+                firebase.database().ref('post_list1/' + ID).set({
+                        id:ID,
+                        email:snapshot.val()[i].email,
+                        post:snapshot.val()[i].post,
+                        like:snapshot.val()[i].like,
+                        time:snapshot.val()[i].time,
+                        fuck:fuck_value
+                    }); 
+            }
+        }
+        console.log("fuck_value", snapshot.val()[i].fuck);
+    });
 }
 window.onload = function () {
     init();
